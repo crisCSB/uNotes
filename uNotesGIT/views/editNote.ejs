@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/basicStyles.css" rel="stylesheet">
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" >Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" href="/">Home</a>
+              <a class="nav-link" href="/logOut">Log Out</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="container mt-5">
+       <h1>Edit Note:</h1>
+       <form method="post" action="/editNoteUpdate" class="mb-4">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Title:</label>
+            <input value="<%= allUserNotes[0].note_title %>"  name="noteTitle" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Content:</label>
+                <textarea rows="5" cols="50"  name="noteBody" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"><%= allUserNotes[0].note_text %></textarea>
+                </div>
+                <input type="hidden" id="custId" name="userID" value="<%= allUserNotes[0].note_id %>">
+                <input type="hidden" id="custId" name="noteNumber" value="<%= allUserNotes[0].note_number %>">
+        <a href="/" class="btn btn-secondary">Go back</a>
+        <button class="btn btn-success"> Edit Note </button>
+      </form>
+       
+    </div>
+    <script src="js/bootstrap.js"></script>
+</body>
+</html>

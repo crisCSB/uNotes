@@ -1,0 +1,29 @@
+.basicStyleMT{
+    margin-top:300px;
+}
+
+input{
+ font-family: Helvetica;
+ font-size: 35px;
+ padding: 0;
+ width: 100%;
+}
+
+.noOutline {
+    outline: none;
+} 
+
+textarea{ 
+    width: 100%;
+    outline: none;
+}
+
+
+
+
+
+@media only screen and (max-width: 1080px) {
+    .basicStyleMT {
+        margin-top:130px;
+    }
+  }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/basicStyles.css" rel="stylesheet">
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" >Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
+              <a class="nav-link" href="/signUp">Sign Up</a>
+              <a class="nav-link" href="/logIn">Log In</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="container mt-5">
+       <% if(inValidInputs === "true") { %>
+        <h1 class="alert alert-warning" >Data enterd is not valid please try again</h1>
+        <% }  %>
+       
+       <h1>Log In</h1>
+       <form method="post" action="/SubmitLogIn">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Username:</label>
+            <input  name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <form method="post" action="/SubmitLogIn">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Password:</label>
+                <input  name="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              </div>
+      
+        <a href="/signUp" class="btn btn-secondary">Go To Sign Up</a>
+        <button class="btn btn-success"> Submit Log In </button>
+      </form>
+       
+    </div>
+    <script src="js/bootstrap.js"></script>
+</body>
+</html>

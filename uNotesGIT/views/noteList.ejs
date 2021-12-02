@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/basicStyles.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" >Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link"  href="/createNote?userId=<%= usernameIdSend %>">Create Note</a>
+              <a class="nav-link" href="/logOut">Log Out</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+
+    <div class="container mt-5">
+      <h1 class="mb-4">Your notes:</h1>
+     <% for(let i = 0;i < allUserNotes.length; i++){ %>
+      <div class="card text-dark bg-warning mb-3">
+      <form class="m-3" action="/editNote" method="POST">
+        <input id="disabledTextInput" class="card-header border-0 bg-warning noOutline" name="noteTitle" class="card-header" value="<%= allUserNotes[i].note_title %>">
+        <div class="card-body">
+          <textarea readonly name="noteBody" cols="40" rows="7"  class="border-0 bg-warning" name="noteBody"  /><%=  allUserNotes[i].note_text %>  </textarea>
+          </div>
+        <input type="hidden" name="noteID" value="<%=  usernameIdSend %>" />
+        <input type="hidden" name="noteNumber" value="<%= allUserNotes[i].note_number %>" />
+        <a href="#" onclick="this.parentNode.submit()" class="btn btn-success">Edit Note</a>
+        </form>
+      <form class="m-3" action="/deleteNote" method="POST">
+        <input type="hidden" name="noteID" value="<%= allUserNotes[i].note_number %>" />
+        <a href="#" onclick="this.parentNode.submit()" class="btn btn-danger">Delete Note</a>
+        </form>
+      </div>
+      <% } %>
+  
+</div>
+    <script src="js/bootstrap.js"></script>
+</body>
+</html>
